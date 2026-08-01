@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Interactive Story for Ayushi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Music Element -->
+    <audio id="bg-music" loop>
+        <!-- REPLACE THIS SRC WITH YOUR AUDIO FILE -->
+        <source src="music/music 01.mpeg" type="audio/mpeg">
+    </audio>
+
+    <!-- Outer background texture -->
+    <div class="page-background"></div>
+
+    <!-- Phone Mockup Container -->
+    <div class="phone-container">
+        <div class="phone-frame">
+            <div class="speaker-notch"></div>
+
+            <!-- Music Toggle Button -->
+            <button id="music-btn" class="music-btn hidden">🔊</button>
+
+            <div class="screen-content">
+
+                <!-- SCREEN 1: Notifications -->
+                <div class="card card-1 active pink-bg">
+                    <div class="stagger-container w-100">
+                        <div class="notification stagger-item">
+                            <div class="notif-header">FOR YOU · NOW</div>
+                            <div class="notif-body">1 unopened message</div>
+                        </div>
+                        <div class="notification stagger-item mt-10">
+                            <div class="notif-header">FOR YOU · NOW</div>
+                            <div class="notif-body">Actually... it's more than a message.</div>
+                        </div>
+                    </div>
+                    <!-- Added ID to first button to trigger music -->
+                    <button id="start-story-btn" class="btn next-btn mt-40 stagger-item">OPEN IT</button>
+                    <p class="tiny-text mt-20 stagger-item">Best experienced with sound on 🔊<br>:)</p>
+                </div>
+
+                <!-- SCREEN 2: The Door -->
+                <div class="card card-2 blue-bg">
+                    <p class="handwritten">Knock knock...</p>
+                    <div class="door-illustration">
+                        <div class="door"></div>
+                    </div>
+                    <h2 class="bold-title mt-20">HEY AYUSHI.</h2>
+                    <p class="subtitle">I made a tiny place on the internet for you.</p>
+                    <p class="subtitle mb-20">You have to keep going until the end.</p>
+                    <div class="btn-group">
+                        <button class="btn next-btn outline-btn">FINE 🙄</button>
+                        <button class="btn next-btn dark-btn">ABSOLUTELY NOT</button>
+                    </div>
+                </div>
+
+                <!-- SCREEN 3: Museum of Us -->
+                <div class="card card-3 yellow-bg scrollable">
+                    <div class="scroll-content align-center">
+                        <p class="subtitle">Welcome to the extremely prestigious</p>
+                        <h1 class="handwritten text-lg mb-10">Museum of Us.</h1>
+                        <p class="subtitle">Please don't touch anything.</p>
+                        <p class="handwritten mb-20">...obviously, touch everything.</p>
+
+                        <div class="exhibits-row">
+                            <div class="exhibit" onclick="showExhibit(1)">
+                                <div class="exhibit-icon">✉️</div>
+                                <p>EXHIBIT 001</p>
+                                <span class="tap-hint">tap</span>
+                            </div>
+                            <div class="exhibit" onclick="showExhibit(2)">
+                                <div class="exhibit-icon">🔒</div>
+                                <p>EXHIBIT 002</p>
+                                <span class="tap-hint">tap</span>
+                            </div>
+                            <div class="exhibit" onclick="showExhibit(3)">
+                                <div class="exhibit-icon">🖼️</div>
+                                <p>EXHIBIT 003</p>
+                                <span class="tap-hint">tap</span>
+                            </div>
+                        </div>
+
+                        <!-- Exhibit Info Displays -->
+                        <div id="exhibit-info-1" class="exhibit-info hidden">
+                            <p>Funny how a simple "Hi" can lead to meeting someone worth talking to.. Nobody knew this
+                                would become such a long-term subscription.</p>
+                        </div>
+                        <div id="exhibit-info-2" class="exhibit-info hidden">
+                            <p class="tiny-text">slide the latch to unlock →</p>
+                            <p>Thousands of completely unnecessary conversations.</p>
+                        </div>
+                        <div id="exhibit-info-3" class="exhibit-info hidden">
+                            <p class="tiny-text">👈 pull the curtain aside</p>
+                            <p>Proof that friendship is mostly just finding one person whose weirdness is compatible
+                                with yours.</p>
+                        </div>
+
+                        <button class="btn outline-btn mt-20 hidden" id="back-hallway-btn" onclick="hideExhibits()">BACK
+                            TO THE HALLWAY</button>
+                        <button class="btn next-btn mt-40">CONTINUE THE TOUR →</button>
+                    </div>
+                </div>
+
+                <!-- SCREEN 4: Do Not Press -->
+                <div class="card card-4 blue-bg">
+                    <p class="handwritten mb-10">do NOT.</p>
+                    <div class="warning-box mb-20">⚠️ DO NOT PRESS</div>
+
+                    <button class="giant-red-btn" id="do-not-press-btn"></button>
+                    <p class="subtitle mt-20" id="seriously-text">seriously, do not.</p>
+
+                    <div class="terminal hidden" id="diagnostic-terminal">
+                        <p class="terminal-header">RUNNING FRIENDSHIP DIAGNOSTIC</p>
+                        <div id="terminal-lines"></div>
+                        <div class="terminal-result hidden" id="terminal-result">
+                            <p class="mt-10">RESULT:</p>
+                            <h3>YOU KNOW WAY TOO MUCH.</h3>
+                            <p class="mt-10">Unfortunately, we are now friends for life.</p>
+                            <p class="mt-10 error-text">NO CANCELLATIONS. NO REFUNDS.</p>
+                            <button class="btn next-btn mt-20 w-100">ACCEPT MY FATE</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 5: Transition -->
+                <div class="card card-5 dark-bg">
+                    <div class="stagger-container text-left w-100 p-20">
+                        <h2 class="stagger-item text-white mb-20">OKAY.</h2>
+                        <h2 class="stagger-item text-white mb-20">JOKES APART.</h2>
+                        <h2 class="stagger-item text-yellow">THERE'S ONE THING I ACTUALLY WANTED TO TELL YOU.</h2>
+                    </div>
+                    <button class="btn next-btn mt-auto stagger-item">Next</button>
+                </div>
+
+                <!-- SCREEN 6: The Letter & Popup -->
+                <div class="card card-6 notebook scrollable">
+                    <div class="scroll-content letter-content">
+                        <p>Dear Ayushi,</p>
+                        <p>Life has a strange way of introducing us to hundreds of people.</p>
+                        <p>Some stay for a conversation.</p>
+                        <p>Some stay for a chapter.</p>
+                        <p>And somehow, a very small number become part of the story itself.</p>
+                        <p class="highlight">You're one of those people for me.</p>
+                        <p>Thank you for being exactly the kind of weird that matches mine.</p>
+                        <p>I don't know what life will look like years from now.</p>
+                        <p>But I'm really glad there was a version of my life where our paths crossed.</p>
+                        <p>And I hope there are many more versions after this one.</p>
+                        <p class="highlight">Happy Friendship Day.</p>
+                        <p class="handwritten text-lg mt-20">- Ankit</p>
+
+                        <button class="btn outline-btn mt-40 mb-40 w-100" id="cry-btn">...I'M NOT CRYING →</button>
+                    </div>
+
+                    <!-- System Popup -->
+                    <div class="system-popup-overlay hidden" id="system-popup">
+                        <div class="system-popup-box">
+                            <div class="warning-header">⚠️ SYSTEM MESSAGE</div>
+                            <h3 class="mt-20">Emotional moment detected.</h3>
+                            <p class="mt-10">This is getting uncomfortable.</p>
+                            <button class="btn next-btn dark-btn mt-20 w-100">FIX IT IMMEDIATELY</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 7: Word Search -->
+                <div class="card card-7 green-bg">
+                    <div class="word-grid">
+                        <div class="grid-row"><span>C</span><span>H</span><span>A</span><span>O</span><span>S</span>
+                        </div>
+                        <div class="grid-row"><span>A</span><span>L</span><span>H</span><span>E</span><span>W</span>
+                        </div>
+                        <div class="grid-row">
+                            <span>B</span><span>E</span><span>S</span><span>T</span><span>I</span><span>E</span></div>
+                        <div class="grid-row"><span>X</span><span>Y</span><span>Z</span><span>A</span><span>B</span>
+                        </div>
+                    </div>
+                    <p class="tiny-text mt-20 mb-10">spot the hidden words? 👀</p>
+                    <h3 class="bold-title text-center">HAPPY FRIENDSHIP DAY, YOU FOOL 🤝</h3>
+                    <button class="btn next-btn mt-auto">CONTINUE →</button>
+                </div>
+
+                <!-- SCREEN 8: Agreement (FIXED LAYOUT) -->
+                <div class="card card-8 notebook scrollable">
+                    <div class="scroll-content agreement-layout">
+                        <h3 class="text-center mb-10">FRIENDSHIP RENEWAL AGREEMENT</h3>
+                        <p class="tiny-text mb-20 text-center">By continuing, Ayushi agrees to:</p>
+
+                        <ul class="checklist">
+                            <li>
+                                <div class="check"></div> <span class="check-text">Continue sending unnecessary
+                                    memes</span>
+                            </li>
+                            <li>
+                                <div class="check"></div> <span class="check-text">Provide emotional support when
+                                    required</span>
+                            </li>
+                            <li>
+                                <div class="check"></div> <span class="check-text">Pretend to listen to repeated
+                                    stories</span>
+                            </li>
+                            <li>
+                                <div class="check"></div> <span class="check-text">Participate in questionable
+                                    plans</span>
+                            </li>
+                            <li>
+                                <div class="check"></div> <span class="check-text">Remain available for random "bro
+                                    listen" messages</span>
+                            </li>
+                            <li>
+                                <div class="check"></div> <span class="check-text">Maintain confidentiality regarding
+                                    embarrassing information</span>
+                            </li>
+                        </ul>
+
+                        <div class="terms-box mt-20">
+                            <p>Term: <strong>Lifetime</strong></p>
+                            <p>Cancellation policy: <strong>None</strong></p>
+                        </div>
+
+                        <div class="stamp-container mt-20" id="stamp-container">
+                            <button class="btn dark-btn w-100" id="accept-btn">I ACCEPT</button>
+                            <div class="stamp hidden" id="renewal-stamp">FRIENDSHIP RENEWED ✓</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCREEN 9: Outro -->
+                <div class="card card-9 yellow-bg">
+                    <canvas id="confetti-canvas"></canvas>
+                    <p class="handwritten text-lg mb-10 z-index-2">the end ♡</p>
+                    <h1 class="giant-title z-index-2">THAT'S IT.</h1>
+                    <p class="subtitle z-index-2">You can leave now.</p>
+                    <p class="tiny-text mt-20 z-index-2">...although you owe me a reply.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
