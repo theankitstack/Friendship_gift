@@ -114,26 +114,30 @@
                 </div>
 
                 <!-- SCREEN 4: Do Not Press -->
-                <div class="card card-4 blue-bg">
-                    <p class="handwritten mb-10">do NOT.</p>
-                    <div class="warning-box mb-20">⚠️ DO NOT PRESS</div>
+               <div class="card card-4 blue-bg scrollable">
+          <div class="scroll-content align-center w-100">
+            
+            <p class="handwritten mb-10 mt-10">do NOT.</p>
+            <div class="warning-box mb-20">⚠️ DO NOT PRESS</div>
+            
+            <button class="giant-red-btn" id="do-not-press-btn"></button>
+            <p class="subtitle mt-20" id="seriously-text">seriously, do not.</p>
 
-                    <button class="giant-red-btn" id="do-not-press-btn"></button>
-                    <p class="subtitle mt-20" id="seriously-text">seriously, do not.</p>
-
-                    <div class="terminal hidden" id="diagnostic-terminal">
-                        <p class="terminal-header">RUNNING FRIENDSHIP DIAGNOSTIC</p>
-                        <div id="terminal-lines"></div>
-                        <div class="terminal-result hidden" id="terminal-result">
-                            <p class="mt-10">RESULT:</p>
-                            <h3>YOU KNOW WAY TOO MUCH.</h3>
-                            <p class="mt-10">Unfortunately, we are now friends for life.</p>
-                            <p class="mt-10 error-text">NO CANCELLATIONS. NO REFUNDS.</p>
-                            <button class="btn next-btn mt-20 w-100">ACCEPT MY FATE</button>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="terminal hidden mt-20" id="diagnostic-terminal">
+              <p class="terminal-header">RUNNING FRIENDSHIP DIAGNOSTIC</p>
+              <div id="terminal-lines"></div>
+              
+              <div class="terminal-result hidden" id="terminal-result">
+                <p class="mt-10">RESULT:</p>
+                <h3>YOU KNOW WAY TOO MUCH.</h3>
+                <p class="mt-10">Unfortunately, we are now friends for life.</p>
+                <p class="mt-10 error-text">NO CANCELLATIONS. NO REFUNDS.</p>
+                <button class="btn next-btn mt-20 w-100">ACCEPT MY FATE</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
                 <!-- SCREEN 5: Transition -->
                 <div class="card card-5 dark-bg">
                     <div class="stagger-container text-left w-100 p-20">
