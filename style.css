@@ -25,7 +25,7 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
+    /* margin-bottom: 30px; */
     padding: 0;
 }
 
@@ -38,6 +38,8 @@ body {
     font-family: var(--font-body);
     color: var(--text-dark);
     overflow: hidden;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
 
 /* Background Texture */
